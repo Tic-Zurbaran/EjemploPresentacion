@@ -1,16 +1,11 @@
 # Librerias importadas
-
 import pygame as pg
 import sys, random
 from pygame.locals import *
 import constants as c
 
-
-
-
-
-
-class Player(pg.sprite.Sprite):
+# Clases de objetos 
+class Player(pg.sprite.Sprite): # Clase de nave
 	def __init__(self):
 		super().__init__()
 		self.image = pg.image.load("nave.png").convert()
@@ -25,7 +20,7 @@ class Player(pg.sprite.Sprite):
 		self.rect.x += self.speed_x
 		player.rect.y = 595
 
-class Bullet(pg.sprite.Sprite):
+class Bullet(pg.sprite.Sprite): # Clase de disparo
 	def __init__(self):
 		super().__init__()
 		self.image = pg.image.load("bullet.png").convert()
@@ -36,7 +31,7 @@ class Bullet(pg.sprite.Sprite):
 		self.rect.y -= 4
 
 
-class Enemy(pg.sprite.Sprite):
+class Enemy(pg.sprite.Sprite): # Clase de enemigo
 	def __init__(self):
 		super().__init__()
 		self.image = pg.image.load("enemy.png").convert()
@@ -60,17 +55,17 @@ pg.init()
 screen = pg.display.set_mode(c.size)
 
 # Título
-pg.display.set_caption("Ejemplo")
+pg.display.set_caption("SpaceInvaders")
 
-
+# Cargar imagen de fondo
 background = pg.image.load("bg.png").convert()
 
-
+# 
 sprite_list = pg.sprite.Group()
 bullet_list = pg.sprite.Group()
 enemy_list = pg.sprite.Group()
 
-
+# Musica del juego
 pg.mixer.music.load("music.wav")
 pg.mixer.music.play(-1)
 
